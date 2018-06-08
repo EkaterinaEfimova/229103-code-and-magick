@@ -1,7 +1,6 @@
 'use strict'
 
 //Создание облака с тенью и информации по игрокам
-
 var CLOUD_WIDTH = 420;
 var CLOUD_HEIGHT = 270;
 var CLOUD_TEXT_X = 140;
@@ -22,20 +21,20 @@ var COLOR_MAIN_BAR = 'rgba(255, 0, 0, 1)';
 
 var barY = CLOUD_TEXT_Y + CLOUD_TEXT_GAP * 2;
 
-//Создание облака
 var renderCloud = function(ctx, x, y, color) {
 	ctx.fillStyle = color;
 	ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
 };
 
-//нахождение максимального элемента
-var getMaxElement = function(arr) {
-	var maxElement = arr[0];
 
-	for (var i = 0; i < arr.length; i++) {
-		if (arr[i] > maxElement) {
-		maxElement = arr[i];
-		}
+//нахождение максимального элемента
+	var getMaxElement = function(arr) {
+		var maxElement = arr[0];
+
+		for (var i = 0; i < arr.length; i++) {
+			if (arr[i] > maxElement) {
+			maxElement = arr[i];
+	}
 	}
 
 	return maxElement;
@@ -59,6 +58,7 @@ window.renderStatistics = function(ctx, players, times) {
 
 //отрисовка гистограммы
 	var maxTime = getMaxElement(times);
+
 
 	for (var i = 0; i < players.length; i++) {
 //   MAX_BAR_HEIGHT    BAR[I]
