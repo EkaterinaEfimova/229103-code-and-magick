@@ -28,13 +28,13 @@ var renderCloud = function(ctx, x, y, color) {
 
 
 //нахождение максимального элемента
-	var getMaxElement = function(arr) {
-		var maxElement = arr[0];
+var getMaxElement = function(arr) {
+	var maxElement = arr[0];
 
-		for (var i = 0; i < arr.length; i++) {
-			if (arr[i] > maxElement) {
+	for (var i = 0; i < arr.length; i++) {
+		if (arr[i] > maxElement) {
 			maxElement = arr[i];
-	}
+		}
 	}
 
 	return maxElement;
@@ -67,17 +67,14 @@ window.renderStatistics = function(ctx, players, times) {
 // X = (BAR[I] * BAR_HEIGHT) / MAX_BAR_HEIGHT
 
 		var barHeight = (BAR_HEIGHT * times[i] / maxTime);
+		var gamerX = GAMER_X + (BAR_WIDTH + GAMER_GAP) * i;
 
-		if (players[i] === TITLE_GAMER_BAR) {
-			ctx.fillStyle = COLOR_MAIN_BAR;
-		} else {
-			ctx.fillStyle = 'rgba(0,0,255,' + Math.random() + ')';
-		}
-
-		ctx.fillRect(GAMER_X  + (BAR_WIDTH + GAMER_GAP) * i, barY + (BAR_HEIGHT - barHeight) + CLOUD_TEXT_GAP + CLOUD_TEXT_GAP, BAR_WIDTH, barHeight);
+		players[i] == TITLE_GAMER_BAR ? ctx.fillStyle = COLOR_MAIN_BAR : ctx.fillStyle = 'rgba(0,0,255,' + Math.random() + ')';
+			
+		ctx.fillRect(gamerX, barY + (BAR_HEIGHT - barHeight) + CLOUD_TEXT_GAP + CLOUD_TEXT_GAP, BAR_WIDTH, barHeight);
 		ctx.fillStyle = TEXT_COLOR;
-		ctx.fillText(players[i], GAMER_X  + (BAR_WIDTH + GAMER_GAP) * i, GAMER_NAME_Y);
-		ctx.fillText(Math.round(times[i]), GAMER_X  + (BAR_WIDTH + GAMER_GAP) * i, barY + (BAR_HEIGHT - barHeight) + CLOUD_TEXT_GAP);
+		ctx.fillText(players[i], gamerX, GAMER_NAME_Y);
+		ctx.fillText(Math.round(times[i]), gamerX, barY + (BAR_HEIGHT - barHeight) + CLOUD_TEXT_GAP);
 	}
 
 };
