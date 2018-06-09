@@ -70,9 +70,9 @@ window.renderStatistics = function (ctx, players, times) {
     var gamerX = GAMER_X + (BAR_WIDTH + GAMER_GAP) * i;
 
     if (players[i] === TITLE_GAMER_BAR) {
-      ctx.fillStyle = COLOR_MAIN_BAR
+      ctx.fillStyle = COLOR_MAIN_BAR;
     } else {
-      ctx.fillStyle = 'rgba(0,0,255,' + Math.random() + ')'
+      ctx.fillStyle = 'rgba(0,0,255,' + Math.random() + ')';
     }
 
     ctx.fillRect(gamerX, barY + (BAR_HEIGHT - barHeight) + CLOUD_TEXT_GAP + CLOUD_TEXT_GAP, BAR_WIDTH, barHeight);
