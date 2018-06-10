@@ -68,12 +68,9 @@ window.renderStatistics = function (ctx, players, times) {
 
     var barHeight = (BAR_HEIGHT * times[i] / maxTime);
     var gamerX = GAMER_X + (BAR_WIDTH + GAMER_GAP) * i;
+    var colorBar = players[i] === TITLE_GAMER_BAR ? COLOR_MAIN_BAR : 'rgba(0,0,255,' + Math.random() + ')';
 
-    if (players[i] === TITLE_GAMER_BAR) {
-      ctx.fillStyle = COLOR_MAIN_BAR;
-    } else {
-      ctx.fillStyle = 'rgba(0,0,255,' + Math.random() + ')';
-    }
+    ctx.fillStyle = colorBar;
 
     ctx.fillRect(gamerX, barY + (BAR_HEIGHT - barHeight) + CLOUD_TEXT_GAP + CLOUD_TEXT_GAP, BAR_WIDTH, barHeight);
     ctx.fillStyle = TEXT_COLOR;
