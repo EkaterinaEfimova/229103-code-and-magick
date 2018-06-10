@@ -54,11 +54,10 @@ window.renderStatisticsCloud = function (ctx) {
 
 window.renderStatistics = function (ctx, players, times) {
   // отрисовка облака с заголовком
-  renderCloud = window.renderStatisticsCloud(ctx);
+  window.renderStatisticsCloud(ctx);
 
   // отрисовка гистограммы
   var maxTime = getMaxElement(times);
-
 
   for (var i = 0; i < players.length; i++) {
   //   MAX_BAR_HEIGHT    BAR[I]
@@ -79,4 +78,3 @@ window.renderStatistics = function (ctx, players, times) {
   }
 
 };
-
